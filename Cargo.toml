@@ -1,0 +1,25 @@
+[package]
+name = "pinmap"
+version = "0.1.0"
+authors = ["Nicolas Schodet <nico@ni.fr.eu.org>"]
+description = """
+pinmap is a tool to help pin mapping when designing a board with an STM32
+microcontroller.  It uses a database extracted from CubeMX to construct a
+table of all pins and associated signals.  This table can be open using your
+favorite spreadsheet to assign functions to pins.
+"""
+homepage = "http://git.ni.fr.eu.org/nicolas/pinmap.git/about/"
+repository = "http://git.ni.fr.eu.org/nicolas/pinmap.git/"
+readme = "README.md"
+keywords = ["embedded", "stm32"]
+categories = ["command-line-utilities", "embedded"]
+license = "MIT"
+edition = "2018"
+
+[dependencies]
+csv = "1.0.7"
+flate2 = "1.0"
+itertools = "0.8.0"
+regex = "1"
+roxmltree = "0.6"
+structopt = "0.2"
