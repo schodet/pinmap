@@ -25,7 +25,7 @@ use std::error::Error;
 use std::io::Write;
 use std::result::Result as StdResult;
 
-type Result<T> = StdResult<T, Box<Error>>;
+type Result<T> = StdResult<T, Box<dyn Error>>;
 
 /// Filter signals to reduce pin out table size.
 pub struct SignalFilter {

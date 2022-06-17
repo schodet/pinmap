@@ -26,7 +26,7 @@ use std::path::Path;
 
 static EXT: &str = ".xml.gz";
 
-type Result<T> = std::result::Result<T, Box<Error>>;
+type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
 /// Information about a part.
 #[derive(Debug)]
@@ -117,7 +117,7 @@ impl<'a> PartInfo<'a> {
                 Some(signals_map) => signals_map.get(&name).unwrap_or(&SignalMap::AddF).clone(),
             };
             Ok(SignalInfo { name, map })
-        };
+        }
         fn parse_pin(gpios_info: &GpiosInfo, n: Node) -> Result<PinInfo> {
             let name = attribute_or_error(&n, "Name")?;
             let position = attribute_or_error(&n, "Position")?;
@@ -134,7 +134,7 @@ impl<'a> PartInfo<'a> {
                 position,
                 signals,
             })
-        };
+        }
         let pins = doc_root
             .children()
             .filter(|n| n.has_tag_name("Pin"))

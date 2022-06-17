@@ -50,7 +50,7 @@ enum OptCommand {
     Table { part: String },
 }
 
-fn main() -> Result<(), Box<Error>> {
+fn main() -> Result<(), Box<dyn Error>> {
     let opt = Opt::from_args();
     match opt.command {
         OptCommand::Parts { pattern } => {
